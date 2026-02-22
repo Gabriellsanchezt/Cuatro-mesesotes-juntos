@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros — Una historia a distancia</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/black.css">
+  <style>
+    /* Navy con patrón de corazones (estilo Slidesgo "corazones encantadores") */
+    body { background: #0f172a; margin: 0; }
+    .reveal-viewport {
+      background: #0f172a !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='%2394a3b8' fill-opacity='0.06' d='M20 35.5c-.3 0-.6-.1-.8-.3C17.8 33.5 5 22 5 13.5 5 8.3 9 5 14 5c3.5 0 6 1.8 7.5 3.5C23 6.8 25.5 5 29 5c5 0 9 3.3 9 8.5C38 22 25.2 33.5 20.8 35.2c-.2.2-.5.3-.8.3z'/%3E%3C/svg%3E") !important;
+    }
+    .reveal { background: transparent !important; }
+    .reveal .slides { text-align: left; }
+    .reveal .slides section {
+      padding: 1.5rem 2.5rem;
+      box-sizing: border-box;
+    }
+    .reveal .slides section h1,
+    .reveal .slides section h2 {
+      color: #f1f5f9;
+      font-family: Georgia, 'Times New Roman', serif;
+      margin-bottom: 1rem;
+    }
+    .reveal .slides section h1 { font-size: 2rem; }
+    .reveal .slides section h2 {
+      font-size: 1.5rem;
+      border-bottom: 2px solid #94a3b8;
+      padding-bottom: 0.4rem;
+      display: inline-block;
+    }
+    .reveal .slides section p,
+    .reveal .slides section li {
+      color: #e2e8f0;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+    .reveal .slides section p + p { margin-top: 0.75rem; }
+    .reveal .slides section ul { list-style: none; padding-left: 0; }
+    .reveal .slides section ul li {
+      margin: 0.4rem 0;
+      padding-left: 1.3rem;
+      position: relative;
+    }
+    .reveal .slides section ul li::before {
+      content: "\2665";
+      position: absolute;
+      left: 0;
+      top: 0.02em;
+      font-size: 0.6em;
+      color: #94a3b8;
+      opacity: 0.9;
+    }
+    .reveal .slides section.centrado p,
+    .reveal .slides section.centrado h1,
+    .reveal .slides section.centrado h2 {
+      text-align: center;
+    }
+    .reveal .slides section.centrado h2 { border-bottom: none; }
+    /* Portada alineada en el medio de la diapositiva */
+    .reveal .slides section.portada {
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 85vh;
+      padding: 2rem !important;
+      box-sizing: border-box;
+    }
+    .reveal .slides section.portada .portada-titulo,
+    .reveal .slides section.portada .portada-victimas {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+    .reveal .slides section.portada .portada-titulo {
+      font-size: 2.6rem;
+      margin-bottom: 0.5rem;
+      margin-top: 0;
+    }
+    .reveal .slides section.portada .portada-victimas {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      margin-top: 0.25rem;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+        .subtitulo {
+      color: #94a3b8;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.5rem;
+    }
+    .indice-intro {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+    .cita {
+      font-style: italic;
+      color: #cbd5e1;
+      border-left: 3px solid #94a3b8;
+      padding-left: 1rem;
+      margin: 1rem 0;
+    }
+    .versiculo {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-top: 1.5rem;
+      font-style: italic;
+    }
+    .reveal .progress { background: rgba(148,163,184,0.2); }
+    .reveal .progress span { background: #94a3b8; }
+    .reveal .controls .navigate-left,
+    .reveal .controls .navigate-right { color: #94a3b8; }
+    /* Foto del golpe: contenedor la limita como las del grid */
+    .foto-inicio-wrap {
+      max-width: 280px;
+      max-height: 160px;
+      margin: 0.5rem auto;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .foto-inicio-wrap .foto-inicio {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 160px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    /* Grids: 3 fotos por diapositiva (1600x900) */
+    .fotos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .fotos-grid.tres { grid-template-columns: repeat(3, 1fr); }
+    .fotos-grid.dos-fotos { grid-template-columns: repeat(2, 1fr); max-width: 66%; margin-left: auto; margin-right: auto; }
+    .foto-item {
+      text-align: center;
+    }
+    .foto-item img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+      border-radius: 8px;
+    }
+    .foto-item figcaption {
+      color: #94a3b8;
+      font-size: 0.75rem;
+      margin-top: 0.4rem;
+      line-height: 1.35;
+    }
+    .reveal .slides section.centrado.cierre .cierre-nota {
+      display: block;
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      font-style: italic;
+    }
+    /* Botón exportar PDF: flotante, no toca el contenido */
+    .btn-exportar-pdf {
+      position: fixed;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      z-index: 100;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-family: Georgia, 'Times New Roman', serif;
+      color: #e2e8f0;
+      background: #1e293b;
+      border: 1px solid #94a3b8;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .btn-exportar-pdf:hover {
+      background: #334155;
+      border-color: #cbd5e1;
+    }
+    @media print {
+      .btn-exportar-pdf { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button type="button" class="btn-exportar-pdf" id="btn-exportar-pdf" title="Abre la vista de impresión para guardar como PDF">Exportar a PDF</button>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Portada -->
+      <section class="centrado portada">
+        <h1 class="portada-titulo">Bienvenido a nuestro loco amor</h1>
+        <p class="portada-victimas">Víctimas: Fernando y Gabriel</p>
+      </section>
+
+      <!-- Índice -->
+      <section class="indice">
+        <h2>De qué va esto</h2>
+        <p class="indice-intro">Un repaso de nuestra historia y de lo que significa estar juntos.</p>
+        <ul>
+          <li>Cómo empezó todo</li>
+          <li>Lo que más valoro</li>
+          <li>La realidad de estar lejos</li>
+          <li>Contigo en el día a día</li>
+          <li>Recuerdos que guardo</li>
+          <li>Hasta pronto</li>
+        </ul>
+      </section>
+
+      <!-- Cómo empezó todo -->
+      <section>
+        <h2>Cómo empezó todo</h2>
+        <p>Nuestra historia no empezó en helicóptero para tomar camino a tu cumpleaños como se decía. Empezó como suele pasar: con un poco de ser salio y metiche de mi parte y bueno, ya sabes lo que dicen que la curiosidad mata. Es que mírate.</p>
+        <div class="foto-inicio-wrap">
+          <img src="fotos/golpe%20en%20la%20cara.jpeg" alt="El inicio" class="foto-inicio">
+        </div>
+        <p>El pretexto fue un cumpleaños y ganas de hablar; lo que vino después fueron días de conversación. No siempre fluida, pero siempre interesante. Y así, sin planearlo, esto se volvió algo nuestro.</p>
+      </section>
+
+      <!-- Lo que más valoro -->
+      <section>
+        <h2>Lo que más valoro</h2>
+        <p>Ya vamos por el 3er mes y el 4to está aquí mismo, asomando la cabeza. Y la verdad, parándome a pensar un poco, me he dado cuenta de que lo que más valoro de este tiempo no son solo los momentos de risas o cuando todo va rodado, sino el hecho de que estás.</p>
+        <p>Valoro que aparezcas en el móvil con un mensaje cuando menos me lo espero, o esas llamadas jamás son cortas. Sobre todo, valoro que estés ahí cuando no tengo mi mejor cara o cuando las cosas se ponen un poco cuesta arriba; saber que no solo estás para las celebraciones, sino también para aguantar el chaparrón conmigo, eso es lo que marca la diferencia.</p>
+        <p>Me encanta la confianza que nos tenemos, esa tontería de tener ganas de contarte cualquier cosa, por pequeña que sea, y saber que me escuchas. Y sí, a veces la distancia es un asco y se hace pesado estar lejos, pero me da mucha paz la certeza de que, a pesar de los kilómetros o de los días raros, nos seguimos eligiendo.</p>
+      </section>
+
+      <!-- A distancia -->
+      <section>
+        <h2>La realidad de estar lejos</h2>
+        <p>Ya es la segunda vez que nos toca estar lejos. La primera fue un visto y no visto, un paréntesis corto donde sabíamos que en nada nos estábamos dando un abrazo. Esta vez es otra historia; te toca estar de reposo y a mí me toca echarte de menos desde el otro lado de la pantalla.</p>
+        <p>Pero, ¿sabes qué? Me he dado cuenta de algo importante en estos días: no hemos dejado de estar ni un segundo. Ni cuando el silencio pesa, ni cuando las ganas de vernos se ponen intensas. Estamos ahí, en cada mensaje y en cada detalle, cuidándonos como podemos.</p>
+        <p>Todo esto me está sirviendo para confirmar lo que ya sospechaba: que lo nuestro aguanta el tirón. Que somos fuertes, incluso cuando las circunstancias nos obligan a parar.</p>
+        <p>Tengo claro que cuando esto pase y el reposo sea solo un recuerdo, estar juntos todos los días va a ser la recompensa.</p>
+      </section>
+
+      <!-- Contigo en el día a día (1/2) -->
+      <section>
+        <h2>Contigo en el día a día</h2>
+        <p>Contigo ningún día es igual. Cada foto me trae un recuerdo y me recuerda por qué te aprecio.</p>
+        <div class="fotos-grid tres">
+          <figure class="foto-item">
+            <img src="fotos/agarrados%20de%20manos.jpeg" alt="Agarrados de manos" class="slide-foto">
+            <figcaption>Yo no soltaría tu mano por nada del mundo. Un recuerdo que repito en la cabeza cuando te extraño.</figcaption>
+          </figure>
+          <figure class="foto-item">
+            <img src="fotos/FER%20AUTENTICO.jpeg" alt="Fernando siendo auténtico" class="slide-foto">
+            <figcaption>Te quiero así, sin filtros siempre como el niño que realmente eres.</figcaption>
+          </figure>
+          <figure class="foto-item">
+            <img src="fotos/FLORES%20QUE%20ME%20HA%20REGALADO.jpeg" alt="Flores que me ha regalado" class="slide-foto">
+            <figcaption>Cada gesto tuyo lo guardo. Las flores son solo una parte de lo que valoro por ser el gesto más puro y genuino que conzco.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Contigo en el día a día (2/2) -->
+      <section>
+        <h2>Contigo en el día a día</h2>
+        <div class="fotos-grid dos-fotos">
+          <figure class="foto-item">
+            <img src="fotos/Momento%20gracioso.jpeg" alt="Momento gracioso" class="slide-foto">
+            <figcaption>Me gusta tener fotos que me recuerden que reírnos es uno de mis recuerdos favoritos.</figcaption>
+          </figure>
+          <figure class="foto-item">
+            <img src="fotos/Yo%20siendo%20autentico.jpeg" alt="Yo siendo auténtico" class="slide-foto">
+            <figcaption>Contigo me atrevo a ser yo. Este momento lo atesoro porque es el momento en el que me siento más a gusto conmigo mismo.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Recuerdos que guardo (1/2) -->
+      <section>
+        <h2>Recuerdos que guardo</h2>
+        <p>Estas fotos me traen paz y me recuerdan lo que construimos. Las miro cuando te extraño.</p>
+        <div class="fotos-grid tres">
+          <figure class="foto-item">
+            <img src="fotos/Maraton%2010k.jpeg" alt="Maratón 10k" class="slide-foto">
+            <figcaption>Lograrlo juntos. Este recuerdo me hace valorarte más.</figcaption>
+          </figure>
+          <figure class="foto-item">
+            <img src="fotos/Salida%20a%20la%20playa.jpeg" alt="Salida a la playa" class="slide-foto">
+            <figcaption>Me gusta recordar los viajes, porque me hacen pensar en los que estan por venir.</figcaption>
+          </figure>
+          <figure class="foto-item">
+            <img src="fotos/Acostado%20dormido.jpeg" alt="Acostado dormido" class="slide-foto">
+            <figcaption>Ojalá siempre así de fusionados amén</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Recuerdos que guardo (2/2) -->
+      <section>
+        <h2>Recuerdos que guardo</h2>
+        <div class="fotos-grid dos-fotos">
+          <figure class="foto-item">
+            <img src="fotos/Fer%20dormido.jpeg" alt="Fer dormido" class="slide-foto">
+            <figcaption>Mi winnie pooh dormilón</figcaption>
+          </figure>
+          <figure class="foto-item">
+            <img src="fotos/Comelones.jpeg" alt="Comelones" class="slide-foto">
+            <figcaption>Dos comelones en su hábitat natural.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Próximo encuentro -->
+      <section>
+        <h2>Próximo encuentro</h2>
+        <p>Cuando veas esto ya estaremos más cerca de volvernos a ver. En mis planes está quedarnos juntos: quizá no haga falta hacer nada especial, solo estar. O bueno, tener coito es lo más problable  JAJAJAJAJA.</p>
+        <p>Lo que sí quiero es demostrarte lo mucho que te he extrañado y lo valioso que eres para mí.</p>
+      </section>
+
+      <!-- Cierre -->
+      <section class="centrado cierre">
+        <h2>Conmigo estás a salvo</h2>
+        <p>Quiero que sepas que a mi lado puedes ser tú. Que te quiero no solo cuando todo va bien, sino en los días grises también. Que cuento contigo y quiero que cuentes conmigo: para cuidarte, escucharte y estar cuando me necesites.</p>
+        <p class="versiculo">1 Corintios 13:4-8</p>
+        <span class="cierre-nota text-center">Hecho con amor (y muchas ganas de verte)</span>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      transition: 'fade',
+      backgroundTransition: 'fade',
+      center: false,
+      progress: true,
+      controls: true
+    });
+    (function() {
+      var btn = document.getElementById('btn-exportar-pdf');
+      if (!btn) return;
+      var url = location.pathname + location.hash;
+      var hasPrintPdf = location.search.indexOf('print-pdf') !== -1;
+      btn.onclick = function() {
+        if (hasPrintPdf) {
+          window.print();
+        } else {
+          sessionStorage.setItem('revealPrintPdf', '1');
+          location.href = location.pathname + '?print-pdf' + (location.hash || '');
+        }
+      };
+      if (hasPrintPdf && sessionStorage.getItem('revealPrintPdf')) {
+        sessionStorage.removeItem('revealPrintPdf');
+        setTimeout(function() { window.print(); }, 1200);
+      }
+    })();
+  </script>
+</body>
+</html>

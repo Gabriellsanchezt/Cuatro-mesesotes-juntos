@@ -1,5 +1,6 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/FER LOVES/presentacion-amor.html" }
+  "redirects": [
+    { "source": "/", "destination": "/20-10/presentacion.html", "permanent": false },
+    { "source": "/FER LOVES/presentacion-amor.html", "destination": "/20-10/presentacion.html", "permanent": true }
   ]
 }
