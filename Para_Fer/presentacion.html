@@ -168,33 +168,9 @@
       color: #94a3b8;
       font-style: italic;
     }
-    /* Botón exportar PDF: flotante, no toca el contenido */
-    .btn-exportar-pdf {
-      position: fixed;
-      bottom: 1.25rem;
-      right: 1.25rem;
-      z-index: 100;
-      padding: 0.5rem 1rem;
-      font-size: 0.85rem;
-      font-family: Georgia, 'Times New Roman', serif;
-      color: #e2e8f0;
-      background: #1e293b;
-      border: 1px solid #94a3b8;
-      border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-    .btn-exportar-pdf:hover {
-      background: #334155;
-      border-color: #cbd5e1;
-    }
-    @media print {
-      .btn-exportar-pdf { display: none !important; }
-    }
   </style>
 </head>
 <body>
-  <button type="button" class="btn-exportar-pdf" id="btn-exportar-pdf" title="Abre la vista de impresión para guardar como PDF">Exportar a PDF</button>
   <div class="reveal">
     <div class="slides">
 
@@ -343,24 +319,6 @@
       progress: true,
       controls: true
     });
-    (function() {
-      var btn = document.getElementById('btn-exportar-pdf');
-      if (!btn) return;
-      var url = location.pathname + location.hash;
-      var hasPrintPdf = location.search.indexOf('print-pdf') !== -1;
-      btn.onclick = function() {
-        if (hasPrintPdf) {
-          window.print();
-        } else {
-          sessionStorage.setItem('revealPrintPdf', '1');
-          location.href = location.pathname + '?print-pdf' + (location.hash || '');
-        }
-      };
-      if (hasPrintPdf && sessionStorage.getItem('revealPrintPdf')) {
-        sessionStorage.removeItem('revealPrintPdf');
-        setTimeout(function() { window.print(); }, 1200);
-      }
-    })();
   </script>
 </body>
 </html>
